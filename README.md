@@ -83,8 +83,8 @@ Both evaluators return the same `EvaluationResult` shape, so a future real LLM e
 **Prerequisites:** [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/)
 
 ```bash
-git clone <repository-url>
-cd Cipher
+git clone https://github.com/DevaseeshKumar/lld-practice-platform.git
+cd lld-practice-platform
 docker compose up --build
 ```
 
@@ -119,8 +119,8 @@ docker compose up --build
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
-cd Cipher
+git clone https://github.com/DevaseeshKumar/lld-practice-platform.git
+cd lld-practice-platform
 ```
 
 ### 2. Backend setup
