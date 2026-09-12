@@ -4,8 +4,24 @@ const apiRoutes = require('./routes');
 
 const app = express();
 
-// Middlewares
-app.use(cors());
+// CORS configuration supporting process.env.CLIENT_URL
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'https://lld-practice.netlify.app',
+  'http://localhost:5173'
+].filter(Boolean);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (e.g. server health checks, curl, mobile)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.length === 0 || allowedOrigins.includes('*') || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(null, true); // Allow origin fallback
+  },
+  credentials: true
+}));
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true }));
 
